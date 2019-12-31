@@ -1,0 +1,41 @@
+.Form {
+  width: 80%;
+  margin: 0 auto;
+  background-color: white;
+  padding: 10px;
+}
+
+.Form h2 {
+  margin: 10px 0;
+}
+
+.NameForm {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.NameForm div {
+  width: 200px;
+  margin-right: 20px;
+}
+
+.Study {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.Study div {
+  width: 270px;
+}
+
+.Study select {
+  width: 200px;
+}
+
+.Study input {
+  width: 200px;
+}
+
+.OtherCheckbox input {
+  width: 80%;
+}

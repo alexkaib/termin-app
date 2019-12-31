@@ -1,0 +1,20 @@
+.Slot {
+  height: 80px;
+  background-color: white;
+  display: flex;
+  cursor: pointer;
+}
+
+.Slot p {
+  color: #ea6100;
+  margin: auto;
+  font-size: 1.3rem;
+}
+
+.Highlighted {
+  background-color: #f98e2a;
+}
+
+.Highlighted p {
+  color: white;
+}

@@ -1,0 +1,64 @@
+.ConsentForm {
+  width: 80%;
+  height: 600px;
+  margin: 0 auto;
+  border: 5px solid white;
+  border-radius: 5px;
+  box-sizing: border-box;
+  background-color: #F75C03;
+  text-align: center;
+}
+
+.ConsentForm p {
+  text-align: left;
+  padding: 0 100px;
+}
+
+.Terms {
+  height: 300px;
+  overflow-y: scroll;
+}
+
+.AcceptTermsButton p {
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid white;
+  border-radius: 5px;
+  max-width: 30%;
+  box-sizing: border-box;
+  text-align: center;
+  color: white;
+}
+
+.AcceptTermsButton p:hover {
+  background-color: white;
+  color: #F75C03;
+  cursor: pointer;
+}
+
+.ConsentForm form {
+  padding: 20px 0;
+}
+
+@media (max-width: 1200px) and (min-width: 500px) {
+  .ConsentForm {
+    width: 90%;
+    height: 650px;
+  }
+}
+
+@media (max-width: 499px) {
+  .ConsentForm {
+    width: 99%;
+    height: 700px;
+  }
+
+  .ConsentForm p {
+    padding: 0 10px;
+  }
+
+  .AcceptTermsButton p {
+    padding: 20px;
+    max-width: 40%;
+  }
+}

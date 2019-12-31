@@ -1,0 +1,42 @@
+.Input {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.Label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.InputElement {
+  outline: none;
+  border: 1px solid #ccc;
+  background-color: white;
+  font: inherit;
+  padding: 6px 10px;
+  display: block;
+  width: 100%;
+}
+
+.InputElement:focus {
+  outline: none;
+  background-color: #ccc;
+}
+
+.CheckBoxes {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.CheckBoxes div {
+  margin: 10px;
+  display: flex;
+}
+
+.CheckBoxes input {
+  width: 20px;
+  height: 20px;
+  margin-bottom: 0;
+}

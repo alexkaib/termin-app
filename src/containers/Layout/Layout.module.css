@@ -1,0 +1,17 @@
+.MainContainer {
+  background-color: #d3e9ea;
+  padding: 100px;
+  min-height: 100vh;
+}
+
+@media (max-width: 1200px) and (min-width: 500px) {
+  .MainContainer {
+    padding: 100px 70px;
+  }
+}
+
+@media (max-width: 499px) {
+  .MainContainer {
+    padding: 100px 10px;
+  }
+}
