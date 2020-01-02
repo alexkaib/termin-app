@@ -27,10 +27,19 @@
   max-width: 30%;
   box-sizing: border-box;
   text-align: center;
+}
+
+.unavailable {
+  background-color: #ccc;
+  color: #a6a9ae;
+}
+
+.available {
+  background-color: #F75C03;
   color: white;
 }
 
-.AcceptTermsButton p:hover {
+.available:hover {
   background-color: white;
   color: #F75C03;
   cursor: pointer;

@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import axios from '../../../axios-dates/axios-dates';
 
@@ -9,7 +10,6 @@ import Days from '../../../components/RS/Slots/Days/Days';
 
 class SlotSelector extends Component {
   state = {
-    termsAccepted: this.props.termsAccepted,
     allDates: [],
     dates: [],
     slots: [],
@@ -18,9 +18,10 @@ class SlotSelector extends Component {
   }
 
   slotSelectionHandler = (dateAndTime) => {
+    this.props.onSlotSelect(dateAndTime);
     document.body.scrollTop = 0; // For Safari
     document.documentElement.scrollTop = 0;
-    this.props.history.push({pathname: '/rs/submit-slot/' + dateAndTime});
+    this.props.history.push({pathname: '/rs/submit-slot/'});
   };
 
   nextWeekHandler = () => {
@@ -93,4 +94,10 @@ class SlotSelector extends Component {
   }
 };
 
-export default SlotSelector;
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onSlotSelect: (slot) => dispatch({type: 'SELECT_SLOT', selectedDateAndTime: slot})
+  };
+};
+
+export default connect(null, mapDispatchToProps)(SlotSelector);

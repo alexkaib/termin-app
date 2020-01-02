@@ -17,7 +17,9 @@ const consentForm = (props) => (
       options={[{label: 'Ich habe die Nutzungsbedingungen gelesen und stimme zu.', value: 'termsAccepted'}]}
       onChange={props.inputHandler} />
     <div className={styles.AcceptTermsButton}>
-      <p onClick={props.accepted?props.acceptTermsHandler:null}>
+      <p
+        className={props.accepted?styles.available:styles.unavailable}
+        onClick={props.accepted?props.acceptTermsHandler:null}>
         Bestätigen
       </p>
     </div>

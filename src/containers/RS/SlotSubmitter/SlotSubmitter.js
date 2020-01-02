@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 import AuxComp from '../../../hoc/AuxComp/AuxComp';
 import Form from '../../../components/RS/Submit/Form/Form';
@@ -8,9 +9,9 @@ import SubmitFormButtons from '../../../components/RS/Submit/SubmitFormButtons/S
 class SlotSubmitter extends Component {
 
   state = {
-    dateAndTime: this.props.match.params.dateAndTime,
-    date: this.props.match.params.dateAndTime.split('_')[0],
-    time: this.props.match.params.dateAndTime.split('_')[1],
+    dateAndTime: this.props.dateAndTime,
+    date: this.props.dateAndTime.split('_')[0],
+    time: this.props.dateAndTime.split('_')[1],
     rsInfo: {
       firstName: '',
       lastName: '',
@@ -128,4 +129,16 @@ class SlotSubmitter extends Component {
   }
 };
 
-export default SlotSubmitter;
+const mapStateToProps = (state) => {
+  return {
+    dateAndTime: state.rs.selectedDateAndTime
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(SlotSubmitter);
