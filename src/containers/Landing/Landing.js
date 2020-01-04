@@ -10,6 +10,12 @@ class Landing extends Component {
     this.props.history.push({pathname: '/rs/select-slot'});
   }
 
+  componentDidMount () {
+    if (this.props.termsAccepted) {
+      this.props.history.push({pathname: '/rs/select-slot'});
+    }
+  }
+
   render () {
 
     return (

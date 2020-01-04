@@ -84,11 +84,9 @@ class SlotSubmitter extends Component {
       });
       break;
     }
-    console.log(this.state);
   };
 
   submitHandler = () => {
-    console.log(this.state.rsInfo);
     const currentInfo = {...this.state.rsInfo};
     if (currentInfo.firstName < 1 || currentInfo.lastName < 1 || !(currentInfo.email.includes('@'))) {
       document.body.scrollTop = 0; // For Safari
@@ -102,10 +100,6 @@ class SlotSubmitter extends Component {
 
   goBackHandler = () => {
     this.props.history.push({pathname: '/rs/select-slot'})
-  }
-
-  componentDidMount () {
-    console.log(this.state.dateAndTime)
   }
 
   render () {

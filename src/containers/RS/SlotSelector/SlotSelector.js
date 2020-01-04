@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
 import axios from '../../../axios-dates/axios-dates';
 
 import AuxComp from '../../../hoc/AuxComp/AuxComp';
@@ -9,12 +8,28 @@ import DayButtons from '../../../components/RS/Slots/DayButtons/DayButtons';
 import Days from '../../../components/RS/Slots/Days/Days';
 
 class SlotSelector extends Component {
-  state = {
-    allDates: [],
-    dates: [],
-    slots: [],
-    nextAvailable: true,
-    prevAvailable: false
+  constructor(props) {
+    super(props);
+
+    const nextThreeWeeks = [];
+    let today = new Date();
+    const currentWeekday = today.getDay();
+    today.setDate(today.getDate() + (1 - currentWeekday)); //set 'today' to current week's monday
+    for (let i = 0; i < 3; i++) {
+      for (let j = 0; j < 5; j++) {
+        nextThreeWeeks.push(today.toISOString().split('T')[0]);
+        today.setDate(today.getDate() + 1);
+      };
+      today.setDate(today.getDate() + 2);
+    };
+
+    this.state = {
+      allDates: nextThreeWeeks,
+      dates: nextThreeWeeks.slice(0,5),
+      slots: [],
+      nextAvailable: true,
+      prevAvailable: false
+    };
   }
 
   slotSelectionHandler = (dateAndTime) => {
@@ -55,17 +70,32 @@ class SlotSelector extends Component {
   }
 
   componentDidMount() {
-    console.log(this.props);
+    const newSlots = [];
+
+    const availableDates = [];
     //reach out to server to get list of upcoming days and open slots
     //the current or upcoming week should be displayed -> handled by backend
-    axios.get('/rs.json').then(req => {
-      console.log(req);
-      this.setState({
-        allDates: req.data.weekdays,
-        slots: req.data.slots,
-        dates: req.data.weekdays.slice(0,5)
-      });
-    })
+    axios.get('/rs.json')
+      .then(req => {
+        const pts = Object.keys(req.data);
+        //newSlots has a list of slot objects which store both the tutor id and the date + time
+        for (let i in pts) {
+          let pt = pts[i];
+          for (let j in req.data[pt]) {
+            newSlots.push({slot: req.data[pt][j], ptId: pt});
+          };
+        };
+        //availableDates is simply a list of all available date +times
+        for (let i in newSlots) {
+          availableDates.push(newSlots[i].slot);
+        };
+        this.setState({slots: availableDates});
+      })
+      .catch(err => {
+        console.log(err.response);
+      })
+
+
     /* const dates = ["2019-12-09", "2019-12-10", "2019-12-11", "2019-12-12", "2019-12-13"];
     const slots = ["2019-12-10_13"];
     return(

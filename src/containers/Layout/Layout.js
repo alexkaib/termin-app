@@ -3,9 +3,8 @@ import { Route } from 'react-router-dom';
 
 import AuxComp from '../../hoc/AuxComp/AuxComp';
 import Toolbar from '../../components/UI/Toolbar/Toolbar';
-import Landing from '../Landing/Landing';
 import RS from '../RS/RS';
-import SlotSetter from '../PT/SlotSetter/SlotSetter';
+import PT from '../PT/PT';
 import styles from './Layout.module.css';
 
 class Layout extends Component {
@@ -16,7 +15,7 @@ class Layout extends Component {
         <main className={styles.MainContainer}>
           <Route path="/" exact component={RS} />
           <Route path="/rs" component={RS} />
-          <Route path="/set-slot" component={SlotSetter} />
+          <Route path="/pt" component={PT} />
         </main>
       </AuxComp>
     );

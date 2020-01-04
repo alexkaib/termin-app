@@ -20,7 +20,11 @@ const submitButtons = props => {
       <div>
         <Input inputtype='select' label='Für wie viele Wochen?' options={weekOptions} onChange={props.weekSelectHandler} />
       </div>
-      <p className={props.submittable?styles.available:styles.unavailable}>Speichern</p>
+      <p
+        className={props.submittable?styles.available:styles.unavailable}
+        onClick={props.confirmSlotsHandler}>
+          Speichern
+      </p>
     </div>
   )
 };

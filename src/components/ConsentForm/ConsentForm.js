@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import Input from '../UI/Input/Input';
 import styles from './ConsentForm.module.css';

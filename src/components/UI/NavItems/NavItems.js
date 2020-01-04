@@ -6,7 +6,7 @@ import styles from './NavItems.module.css';
 
 const locations = [
   {navName: 'Home', navLocation: '/'},
-  {navName: 'Login', navLocation: '/set-slot'},
+  {navName: 'Login', navLocation: '/pt'},
   {navName: 'Settings', navLocation: '/settings'}
 ];
 
