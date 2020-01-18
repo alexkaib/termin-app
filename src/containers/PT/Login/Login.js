@@ -24,7 +24,7 @@ class Login extends Component {
       password: this.state.password,
       returnSecureToken: true
     };
-    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=AIzaSyAwlUkMXlVwCTKNXLNezw4RXIBxfFJeZW8', authData)
+    axios.post('https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=', authData)
       .then(res => {
         const payload = {
           token: res.data.idToken,

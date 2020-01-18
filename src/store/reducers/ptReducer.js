@@ -2,11 +2,13 @@ const initialState = {
   name: '',
   email: '',
   password: '',
-  offeredSlots: '',
+  offeredSlots: [],
   authLoading: false,
   authError: null,
+  loggedIn: false,
   token: '',
-  userId: ''
+  userId: '',
+  datesWithAppointments: []
 };
 
 const ptReducer = (state = initialState, action) => {
@@ -22,6 +24,7 @@ const ptReducer = (state = initialState, action) => {
     case 'AUTH_SUCCESS':
       return {
         ...state,
+        loggedIn: true,
         token: action.token,
         userId: action.userId,
         authError: null,
@@ -34,6 +37,13 @@ const ptReducer = (state = initialState, action) => {
         authError: action.error,
         authLoading: false
       }
+      break;
+    case 'GET_RESERVED_DATES':
+      return {
+        ...state,
+        datesWithAppointments: action.reservedDates
+      };
+      break;
     default:
       return state;
   }

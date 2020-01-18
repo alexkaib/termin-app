@@ -14,7 +14,7 @@ class SlotSelector extends Component {
     const nextThreeWeeks = [];
     let today = new Date();
     const currentWeekday = today.getDay();
-    today.setDate(today.getDate() + (1 - currentWeekday)); //set 'today' to current week's monday
+    today.setDate(today.getDate() + (1 - currentWeekday)); //sets 'today' to current week's monday
     for (let i = 0; i < 3; i++) {
       for (let j = 0; j < 5; j++) {
         nextThreeWeeks.push(today.toISOString().split('T')[0]);
